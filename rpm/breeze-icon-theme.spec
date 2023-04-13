@@ -3,7 +3,7 @@
 
 %global framework breeze-icons
 
-Name:    breeze-icon-theme
+Name:    breeze-icon
 Summary: Breeze icon theme
 Version: 5.104.0
 Release: 1%{?dist}
