@@ -42,7 +42,12 @@ Requires: %{name} = %{version}-%{release}
 %description rcc
 %{summary}.
 
-
+%package     devel
+Summary:     Breeze icon theme development files
+Requires:    %{name} = %{version}-%{release}
+%description devel
+The %{name}-devel package contains libraries and header files for
+developing applications that use %{name}.
 
 %prep
 %autosetup -n %{name}-%{version}/upstream -p1
@@ -84,6 +89,9 @@ du -s .
 %{_datadir}/icons/breeze-dark/
 %exclude %{_datadir}/icons/breeze/breeze-icons.rcc
 %exclude %{_datadir}/icons/breeze-dark/breeze-icons-dark.rcc
+
+%files devel
+%{_opt_kf5_libdir}/cmake/KF5BreezeIcons/
 
 %files rcc
 %{_datadir}/icons/breeze/breeze-icons.rcc
