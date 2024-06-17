@@ -56,24 +56,15 @@ developing applications that use %{name}.
 sed -i -e "s|%{version}|%{kf5_version}|g" CMakeLists.txt
 %endif
 
-
 %build
 export QTDIR=%{_opt_qt5_prefix}
 touch .git
 
-mkdir -p build
-pushd build
-
-%_opt_cmake_kf5 ../ \
-		-DCMAKE_INSTALL_PREFIX:PATH=/usr
-%make_build
-
-popd
+%_opt_cmake_kf5 -DCMAKE_INSTALL_PREFIX:PATH=/usr
+%cmake_build
 
 %install
-pushd build
-make DESTDIR=%{buildroot} install
-popd
+%cmake_install
 
 ## icon optimizations
 du -s .
